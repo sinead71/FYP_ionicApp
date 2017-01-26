@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      New Message
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <ion-label>Catagorie</ion-label>
+      <ion-select [(ngModel)]="catagorie">
+        <ion-option value="bread">Bread</ion-option>
+        <ion-option value="pastries">Pastries</ion-option>
+        <ion-option value="cookies">Cookies</ion-option>
+        <ion-option value="cakes">Cakes</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Your message</ion-label>
+      <ion-input type="text"></ion-input>   
+  </ion-item>
+    <button id="send" ion-button clear >
+        <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+    </button>  
+</ion-content>
+
