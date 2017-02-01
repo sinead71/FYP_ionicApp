@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { newMessagePage } from '../newMessage/newMessage';
 import { ProfilePage } from '../profile/profile';
 
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -17,4 +18,6 @@ export class TabsPage {
   constructor() {
 
   }
+
+  
 }
