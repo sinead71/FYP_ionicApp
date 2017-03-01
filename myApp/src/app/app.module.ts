@@ -8,6 +8,8 @@ import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
 
 
+
+
 @NgModule({
   declarations: [
     MyApp,

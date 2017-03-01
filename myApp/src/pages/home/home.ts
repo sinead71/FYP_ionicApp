@@ -9,13 +9,21 @@ import { DetailsPage } from '../details/details';
 })
 export class HomePage {
   item: any;
+  showDetails: boolean;
   constructor(public navCtrl: NavController) {
-
+    this.showDetails = false; 
   }
 
-  viewItem(item){
-    this.navCtrl.push(DetailsPage, {
-      item:item
-    });
+  viewDetails(){
+    this.navCtrl.push (DetailsPage)
+    if(this.showDetails == true){
+      this.showDetails = false;
+    } else {
+      this.showDetails = true;
+    }
   }
 }
+
+
+
+  

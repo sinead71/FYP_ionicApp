@@ -8,4 +8,20 @@
 
 <ion-content padding>
    details
+   <div *ngIf = 'showDetails'>
+      <ion-card>
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="http://lorempixel.com/150/150">
+            </ion-avatar>
+            <h2>Sinead</h2>
+            <p>Dec 13, 2016</p>
+        </ion-item>
+        <img src="http://blog.kingarthurflour.com/wp-content/uploads/2014/07/TroubleBread2.jpg">
+        <ion-card-content>
+            <p>Does anyone know what flour is best when making bread? 
+                I don't think I'm using the right one. My bread doesn't rise</p>
+        </ion-card-content>    
+    </ion-card>  
+   </div>  
 </ion-content>
