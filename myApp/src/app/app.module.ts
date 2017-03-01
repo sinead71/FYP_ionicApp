@@ -6,9 +6,26 @@ import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
+import { AngularFireModule } from 'angularfire2';
+import { AuthService } from '../providers/auth';
+import { LoginPageComponent } from '/login-page/login-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from '/home-page/home-page.component';
 
+//this is the code that firebase gave me to initialize it the my project
+//can be added in through the index.html page but I found this way to do it too. 
+export const firebaseConfig = {
+  apiKey: "AIzaSyCDWsqHJpQu_LJgG7YjIvW2H-nYE6JaRpA",
+  authDomain: "fypionic.firebaseapp.com",
+  databaseURL: "https://fypionic.firebaseio.com",
+  storageBucket: "fypionic.appspot.com",
+  messagingSenderId: "350190828047"  
+}
 
-
+const routes: Routes = [
+  {path:'', component: HomePageComponent},
+  {path: 'login', component: LoginPageComponent }
+]
 
 @NgModule({
   declarations: [
@@ -17,10 +34,14 @@ import { TabsPage } from '../pages/tabs/tabs';
     ProfilePage,
     HomePage,
     DetailsPage,
-    TabsPage
+    TabsPage,
+    LoginPageComponent,
+    HomePageComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,6 +52,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     DetailsPage, 
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
+    ]
+    //anything in providers gets injected into any of the components
 })
 export class AppModule {}
