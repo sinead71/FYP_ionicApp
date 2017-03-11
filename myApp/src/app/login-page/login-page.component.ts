@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterModule, Router, NavigationExtras } from '@angular/router';
 import { AuthService } from '../providers/auth.service';
 
 @Component({
@@ -7,7 +7,10 @@ import { AuthService } from '../providers/auth.service';
     templateUrl: './login-page.component.html'
 })
 export class LoginPageComponent implements OnInit {
-    constructor(public authService: AuthService, private router:Router){}
+    
+    constructor(public authService: AuthService, private router: Router){
+        console.log('router testing');
+    }
 
     ngOnInit(){
     }

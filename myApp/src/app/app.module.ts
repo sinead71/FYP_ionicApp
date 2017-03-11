@@ -3,8 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { newMessagePage } from '../pages/newMessage/newMessage';
@@ -16,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../providers/auth';
 import { LoginPageComponent } from '/login-page/login-page.component';
 import { HomePageComponent } from '/home-page/home-page.component';
+import { router } from './app.routing.routing';
 
 //this is the code that firebase gave me to initialize it the my project
 //can be added in through the index.html page but I found this way to do it too. 
@@ -27,10 +27,6 @@ export const firebaseConfig = {
   messagingSenderId: "350190828047"  
 };
 
-const routes: Routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'login', component: LoginPageComponent }
-];
 
 @NgModule({
   declarations: [
@@ -41,15 +37,17 @@ const routes: Routes = [
     DetailsPage,
     TabsPage,
     LoginPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    router
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes)
+    AngularFireModule.initializeApp(firebaseConfig,{
+      provider: AuthProviders.Google
+    })   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
