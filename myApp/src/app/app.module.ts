@@ -15,7 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../providers/auth';
 import { LoginPageComponent } from '/login-page/login-page.component';
 import { HomePageComponent } from '/home-page/home-page.component';
-import { router } from './app.routing.routing';
+
 
 //this is the code that firebase gave me to initialize it the my project
 //can be added in through the index.html page but I found this way to do it too. 
@@ -37,8 +37,7 @@ export const firebaseConfig = {
     DetailsPage,
     TabsPage,
     LoginPageComponent,
-    HomePageComponent,
-    router
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
