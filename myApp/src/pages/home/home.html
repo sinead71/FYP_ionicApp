@@ -4,6 +4,21 @@
   </ion-navbar>
 </ion-header>
 
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="Logout">
+        Logout
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-content padding>
   <ion-card>
       <ion-item>

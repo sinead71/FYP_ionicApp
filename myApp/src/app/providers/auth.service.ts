@@ -1,10 +1,25 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods} from 'angularfire2';
+
 
 @Injectable()
 export class AuthService{
+    user = {};
+  items: FirebaseListObservable<any[]>;
 
-    constructor(public af: AngularFire){}
+
+    constructor(public af: AngularFire){
+        this.af.auth.subscribe(user => {
+      console.log('---->', user)
+      if (user) {
+        this.user = user.auth.providerData[0];
+        this.items = af.database.list('/items');
+      }
+      else{
+        this.user = {};
+      }
+    });
+    }
 
     loginWithGoogle(){
         return this.af.auth.login({
@@ -18,5 +33,10 @@ export class AuthService{
     logout(){
         return this.af.auth.logout();
     }
+
+
+  ifLoggedIn(){
+    return (Object.keys(this.user).length === 0);
+  }
 
 } 
