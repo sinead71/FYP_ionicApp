@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 
 @Component({
   templateUrl: 'details.html'

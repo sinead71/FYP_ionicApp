@@ -35,7 +35,7 @@ export class AuthService{
     }
 
 
-  ifLoggedIn(){
+  isUserLoggedIn(){
     return (Object.keys(this.user).length === 0);
   }
 

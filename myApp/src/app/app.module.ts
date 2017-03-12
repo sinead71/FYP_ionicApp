@@ -3,7 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule, AuthProviders} from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { newMessagePage } from '../pages/newMessage/newMessage';
@@ -12,9 +12,9 @@ import { HomePage } from '../pages/home/home';
 import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { AuthService } from '../providers/auth.service';
-import { LoginPageComponent } from '../login-page/login-page.component';
-import { HomePageComponent } from '../home-page/home-page.component';
+import { AuthService } from './providers/auth.service';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 //this is the code that firebase gave me to initialize it the my project
@@ -36,7 +36,6 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage,
     TabsPage,
-    AuthService,
     LoginPageComponent,
     HomePageComponent
   ],
