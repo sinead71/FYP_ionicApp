@@ -16,7 +16,31 @@ export class HomePage {
   user = {};
   afItems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public af: AngularFire) {
+    this.af.auth.subscribe(user =>{
+      console.log('---->', user)
+      if(user){
+        this.user = user.auth.providerData[0];
+        this.afItems = af.database.list('/items'); 
+      }
+      else{
+        this.user = {};
+        this.afItems = null;
+      }
+    });
+
     this.showDetails = false; 
+    
+  }
+
+  Login(){
+    this.af.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup
+    });  
+  }
+
+  Logout(){
+    this.af.auth.logout();
   }
 
   viewDetails(){
@@ -28,9 +52,7 @@ export class HomePage {
     }
   }
 
-  Login(){
-     
-  }
+  
 }
 
 
