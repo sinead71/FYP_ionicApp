@@ -53,7 +53,8 @@ export const firebaseConfig = {
     ProfilePage,
     HomePage,
     DetailsPage, 
-    TabsPage
+    TabsPage,
+    LoginPageComponent
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

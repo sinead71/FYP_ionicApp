@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 //import { AuthService } from '../../app/providers/auth.service';
 
 import { NavController } from 'ionic-angular';
@@ -30,13 +30,6 @@ export class HomePage {
 
     this.showDetails = false; 
     
-  }
-
-  Login(){
-    this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    });  
   }
 
   Logout(){
