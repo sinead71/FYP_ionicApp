@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from './app/providers/auth.service';
+import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
+//import { AuthService } from '../../app/providers/auth.service';
 
 import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
@@ -11,7 +12,10 @@ import { DetailsPage } from '../details/details';
 export class HomePage {
   item: any;
   showDetails: boolean;
-  constructor(public navCtrl: NavController) {
+
+  user = {};
+  afItems: FirebaseListObservable<any[]>;
+  constructor(public navCtrl: NavController, public af: AngularFire) {
     this.showDetails = false; 
   }
 
@@ -22,6 +26,10 @@ export class HomePage {
     } else {
       this.showDetails = true;
     }
+  }
+
+  Login(){
+     
   }
 }
 
