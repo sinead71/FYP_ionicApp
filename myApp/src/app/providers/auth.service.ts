@@ -4,12 +4,12 @@ import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods} from '
 
 @Injectable()
 export class AuthService{
-    user = {};
+  user = {};
   items: FirebaseListObservable<any[]>;
 
 
-    constructor(public af: AngularFire){
-        this.af.auth.subscribe(user => {
+  constructor(public af: AngularFire){
+    this.af.auth.subscribe(user => {
       console.log('---->', user)
       if (user) {
         this.user = user.auth.providerData[0];
@@ -19,15 +19,15 @@ export class AuthService{
         this.user = {};
       }
     });
-    }
+  }
 
-    loginWithGoogle(){
-        return this.af.auth.login({
-            //want to sign in with google
-            provider: AuthProviders.Google,
-            //and how it will be done. popup = popup window
-            method: AuthMethods.Popup
-        });
+  loginWithGoogle(){
+      return this.af.auth.login({
+          //want to sign in with google
+          provider: AuthProviders.Google,
+          //and how it will be done. popup = popup window
+          method: AuthMethods.Popup
+      });
     }   
 
     logout(){
