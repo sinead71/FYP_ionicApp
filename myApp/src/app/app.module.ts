@@ -16,6 +16,8 @@ import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 
 
+
+
 //this is the code that firebase gave me to initialize it the my project
 //can be added in through the index.html page but I found this way to do it too. 
 export const firebaseConfig = {
@@ -44,7 +46,7 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig,{
       provider: AuthProviders.Google
-    })   
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

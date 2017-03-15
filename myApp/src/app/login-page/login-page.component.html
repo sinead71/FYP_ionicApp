@@ -1,4 +1,12 @@
-<div>
-    <h1>Log In With Your Google Account</h1>
-    <button ion-button block (click)='Login()'>Log in</button>
-</div>
+<br><br>
+    <div [hidden]="!isUserLoggedIn()">
+
+        <div>
+            <h1>Log In With Your Google Account</h1>
+            <button ion-button block (click)='Login()'>Log in</button>
+        </div>
+
+    </div>
+    <div [hidden]="isUserLoggedIn()">
+        <button (click)="Logout()">Log out</button>
+    </div>   

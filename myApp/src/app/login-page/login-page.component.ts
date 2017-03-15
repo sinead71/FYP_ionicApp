@@ -34,6 +34,10 @@ export class LoginPageComponent {
       });  
     }
 
+    Logout(){
+    this.af.auth.logout();
+    }
+
     isUserLoggedIn(){
         return (Object.keys(this.user).length === 0);
     }
