@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
-//import { Router } from '@angular/router';
-
+import { NavController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
 
 
@@ -13,6 +12,7 @@ export class LoginPageComponent {
     user = {};
     afItems: FirebaseListObservable<any[]>;
 
+
     constructor(public af: AngularFire){
         this.af.auth.subscribe(user =>{
       console.log('---->', user)
@@ -24,7 +24,8 @@ export class LoginPageComponent {
         this.user = {};
         this.afItems = null;
       }
-    });   
+    });  
+ 
     } 
 
     Login(){
@@ -39,6 +40,6 @@ export class LoginPageComponent {
     }
 
     isUserLoggedIn(){
-        return (Object.keys(this.user).length === 0);
+      return (Object.keys(this.user).length === 0);      
     }
 }

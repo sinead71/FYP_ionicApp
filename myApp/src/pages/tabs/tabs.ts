@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile';
 
 
 @Component({
+  selector: 'tabs',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
