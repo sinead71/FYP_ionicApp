@@ -11,6 +11,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
+import { HttpService } from './providers/http.service';
 
 import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage,
     TabsPage,
-    LoginPageComponent
+    LoginPageComponent,
+    HttpService
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage, 
     TabsPage,
-    LoginPageComponent
+    LoginPageComponent,
+    HttpService
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

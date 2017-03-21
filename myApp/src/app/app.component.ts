@@ -1,21 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Response } from '@angular/http';
+import 'rxjs/Rx';
 
 import { LoginPageComponent } from './login-page/login-page.component';
+import { HttpService } from './providers/http.service';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [HttpService]
 })
-export class MyApp {
+export class MyApp  implements OnInit{
   rootPage = LoginPageComponent;
 
-  constructor(platform: Platform) {
+  constructor(private httpService: HttpService, platform: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      
     });
   }
+  ngOnInit(){
+    this.httpService.getData()
+      .subscribe(
+        (data: any) => console.log(data)
+      );
+  }
+  
 }
