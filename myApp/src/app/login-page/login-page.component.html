@@ -1,4 +1,5 @@
 <br><br>
+    <!--- When the user is not logged in then the log in button will appear -->
     <div [hidden]="!isUserLoggedIn()">
 
         <div>
@@ -7,6 +8,7 @@
         </div>
 
     </div>
+    <!-- When th euser is logged in then the log in button will hide and the app will appear -->
     <div id="loggedIn" [hidden]="isUserLoggedIn()">
         <button (click)="Logout()">Log out</button>
         <tabs></tabs>
