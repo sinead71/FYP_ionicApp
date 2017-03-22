@@ -8,6 +8,8 @@ import { HttpService } from '../../app/providers/http.service';
   providers: [HttpService]
 })
 export class newMessagePage {
+  clearHeader: string = "";
+  clearMessage: string = "";
   constructor(private httpService: HttpService) {}
 
   MessageSubmit(messageHeader: string, newMessage: string){
@@ -15,5 +17,7 @@ export class newMessagePage {
       .subscribe(
         data => console.log
       );
+    this.clearHeader = null;
+    this.clearMessage = null;
   }
 }
