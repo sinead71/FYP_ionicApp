@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
+  <!--<ion-item>
       <ion-label>Catagorie</ion-label>
       <ion-select [(ngModel)]="catagorie">
         <ion-option value="bread">Bread</ion-option>
@@ -16,12 +16,17 @@
         <ion-option value="cakes">Cakes</ion-option>
     </ion-select>
   </ion-item>
+  -->
+  <ion-item>
+    <ion-label floating>Header</ion-label>
+    <ion-input type="text" id="messageHeader" #messageHeader></ion-input>
+  </ion-item>
   <ion-item>
       <ion-label floating>Your message</ion-label>
-      <ion-input type="text"></ion-input>   
+      <ion-input type="text" id="newMessage" #newMessage></ion-input>   
   </ion-item>
-    <button id="send" ion-button clear >
-        <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+    <button id="send" ion-button block (click)="MessageSubmit(messageHeader.value, newMessage.value)">
+        Send
     </button>  
 </ion-content>
 

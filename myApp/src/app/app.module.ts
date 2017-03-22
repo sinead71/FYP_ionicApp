@@ -38,8 +38,7 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage,
     TabsPage,
-    LoginPageComponent,
-    //HttpService
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +57,7 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage, 
     TabsPage,
-    LoginPageComponent,
-    //HttpService
+    LoginPageComponent
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

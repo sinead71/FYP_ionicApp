@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { HttpService } from '../../app/providers/http.service';
 
 @Component({
   selector: 'page-newMessage',
-  templateUrl: 'newMessage.html'
+  templateUrl: 'newMessage.html',
+  providers: [HttpService]
 })
 export class newMessagePage {
+  constructor(private httpService: HttpService) {}
 
-  constructor(public navCtrl: NavController) {
-
+  MessageSubmit(messageHeader: string, newMessage: string){
+    this.httpService.sendDate({messageHeader: messageHeader, newMessage: newMessage})
+      .subscribe(
+        data => console.log
+      );
   }
-
 }
