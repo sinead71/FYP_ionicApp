@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { Response } from '@angular/http';
 import 'rxjs/Rx';
 
 import { LoginPageComponent } from './login-page/login-page.component';
