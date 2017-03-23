@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 //import { AuthService } from '../../app/providers/auth.service';
 
@@ -29,7 +29,8 @@ export class HomePage {
         this.afItems = null;
       }
 
-      //creating array to loop through data in newMessages table
+      
+      //creating array to loop through data in newMessages table and adding it to the home page
       this.httpService.getData()
         .subscribe(
             NewMessage => {
@@ -44,9 +45,9 @@ export class HomePage {
 
     });
 
-    this.showDetails = false; 
-    
+    this.showDetails = false;  
   }
+  
 
   Logout(){
     this.af.auth.logout();
