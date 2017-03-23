@@ -20,7 +20,8 @@ export class HomePage {
       console.log('---->', user)
       if(user){
         this.user = user.auth.providerData[0];
-        this.afItems = af.database.list('/items'); 
+        //NewMessage is the name of the firebase table
+        this.afItems = af.database.list('/NewMessage'); 
       }
       else{
         this.user = {};
