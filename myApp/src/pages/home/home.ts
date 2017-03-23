@@ -4,18 +4,19 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
+import { HttpService } from '../../app/providers/http.service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  item: any;
+  items: any[] = [];
   showDetails: boolean;
 
   user = {};
   afItems: FirebaseListObservable<any[]>;
-  constructor(public navCtrl: NavController, public af: AngularFire) {
+  constructor(public navCtrl: NavController, public af: AngularFire, private httpService: HttpService) {
     this.af.auth.subscribe(user =>{
       console.log('---->', user)
       if(user){
@@ -27,6 +28,20 @@ export class HomePage {
         this.user = {};
         this.afItems = null;
       }
+
+      //creating array to loop through data in newMessages table
+      this.httpService.getData()
+        .subscribe(
+            NewMessage => {
+              const myArray = [];
+              for (let key in NewMessage){
+                myArray.push(key);
+              }
+              this.items = myArray;
+            }
+        );
+      
+
     });
 
     this.showDetails = false; 

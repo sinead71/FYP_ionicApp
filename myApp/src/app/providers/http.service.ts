@@ -20,4 +20,5 @@ export class HttpService{
         })
             .map((data: Response) => data.json());
     }
+    
 }
