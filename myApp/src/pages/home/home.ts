@@ -44,8 +44,6 @@ export class HomePage {
               this.items = myArray;
             }
         );
-      
-
     });
 
     this.showDetails = false;  
