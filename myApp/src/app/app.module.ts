@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders} from 'angularfire2';
+import {NgPipesModule} from 'ngx-pipes';
 
 import { MyApp } from './app.component';
 import { newMessagePage } from '../pages/newMessage/newMessage';
@@ -47,7 +48,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig,{
       provider: AuthProviders.Google
-    })
+    }),
+    NgPipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
