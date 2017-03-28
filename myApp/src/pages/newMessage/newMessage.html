@@ -18,15 +18,15 @@
   </ion-item>
   -->
   <ion-item>
-    <ion-label floating>Header</ion-label>
+    <ion-label floating>Header </ion-label>
     <ion-input type="text" id="messageHeader" #messageHeader [(ngModel)]="clearHeader"></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Your message</ion-label>
       <ion-input type="text" id="newMessage" #newMessage [(ngModel)]="clearMessage"></ion-input>   
-  </ion-item>
-    <button id="send" ion-button block (click)="MessageSubmit(messageHeader.value, newMessage.value)">
-        Send
-    </button>  
+  </ion-item>   
+      <button id="send" ion-button block (click)="MessageSubmit(messageHeader.value, newMessage.value)">
+          Send
+      </button> 
 </ion-content>
 

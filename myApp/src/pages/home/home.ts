@@ -5,6 +5,7 @@ import "rxjs/add/operator/map";
 import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
+import { orderByPipe } from '../../app/providers/orderByPipe';
 
 @Component({
   selector: 'page-home',
@@ -17,14 +18,14 @@ export class HomePage {
   user = {};
   afItems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public af: AngularFire, 
-              private httpService: HttpService) {
+              private httpService: HttpService, private orderByPipe: orderByPipe) {
     this.af.auth.subscribe(user =>{
       console.log('---->', user)
       if(user){
         this.user = user.auth.providerData[0];
         //NewMessage is the name of the firebase table
         //this also reverses the array so that it will show the newer additions to the array first
-        this.afItems = af.database.list('/NewMessage')
+        this.afItems = af.database.list('/NewMessage', {query: {orderByChild: 'date'}})
         .map((array) => array.reverse()) as FirebaseListObservable<any[]>; 
       }
       else{
