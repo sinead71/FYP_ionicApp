@@ -5,7 +5,6 @@ import "rxjs/add/operator/map";
 import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
-import { orderByPipe } from '../../app/providers/orderByPipe';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +17,7 @@ export class HomePage {
   user = {};
   afItems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public af: AngularFire, 
-              private httpService: HttpService, private orderByPipe: orderByPipe) {
+              private httpService: HttpService) {
     this.af.auth.subscribe(user =>{
       console.log('---->', user)
       if(user){

@@ -14,7 +14,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 //import { HttpService } from './providers/http.service';
 
 import { AuthService } from './providers/auth.service';
-import { orderByPipe } from './providers/orderByPipe'
 import { LoginPageComponent } from './login-page/login-page.component';
 
 
@@ -62,8 +61,7 @@ export const firebaseConfig = {
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService,
-    orderByPipe
+    AuthService
     ]
     //anything in providers gets injected into any of the components
 })

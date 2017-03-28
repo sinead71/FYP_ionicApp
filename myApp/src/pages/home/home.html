@@ -25,7 +25,13 @@
             <img src="http://lorempixel.com/500/400">
             <ion-card-content>
                 <p>{{afItem.newMessage}}</p>
-            </ion-card-content>   
+            </ion-card-content>  
+            <hr>
+            <ion-card-content>
+                <div>
+                    <button id='messComment' ion-button outline (click)='addComment()'>Comment</button>
+                </div>
+            </ion-card-content> 
         </ion-card>
     </li>
   </ul>
