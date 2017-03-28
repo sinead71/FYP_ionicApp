@@ -63,6 +63,15 @@ export class HomePage {
     }
   }
 
+  addComment(){
+    this.navCtrl.push (DetailsPage)
+    if(this.showDetails == true){
+      this.showDetails = false;
+    } else {
+      this.showDetails = true;
+    }
+  
+  }
   
 }
 
