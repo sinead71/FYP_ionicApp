@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import firebase from 'firebase';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../app/providers/http.service';
