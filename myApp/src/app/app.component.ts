@@ -21,10 +21,6 @@ export class MyApp  implements OnInit{
       StatusBar.styleDefault();
       Splashscreen.hide();
 
-      var root = database().ref();
-      root.on('value', function(snap){
-        console.log(snap.val());
-      });
     });
   }
   ngOnInit(){

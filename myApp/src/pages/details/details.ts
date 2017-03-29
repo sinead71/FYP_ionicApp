@@ -8,6 +8,7 @@ import { HttpService } from '../../app/providers/http.service';
   templateUrl: 'details.html'
 })
 export class DetailsPage implements OnInit{
+  id: any;
   item: any;
   constructor(public navCtrl: NavController,
               public params:NavParams, 
@@ -16,10 +17,12 @@ export class DetailsPage implements OnInit{
   }
 
   ngOnInit(){
+    this.id = this.params['id'];
     this.httpService.getData()
       .subscribe(
-        (data: any) => console.log(data)
-      );
+        item => {this.item = item;
+        //will also get image from here
+      });
   }
 
 }
