@@ -4,6 +4,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../app/providers/http.service';
+import { HomePage } from './home/home';
 
 @Component({
   templateUrl: 'details.html'
