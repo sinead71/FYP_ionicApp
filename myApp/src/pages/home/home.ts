@@ -12,7 +12,6 @@ import { HttpService } from '../../app/providers/http.service';
 })
 export class HomePage {
   items: any[] = [];
-  showDetails: boolean;
 
   user = {};
   afItems: FirebaseListObservable<any[]>;
@@ -41,13 +40,13 @@ export class HomePage {
               const myArray = [];
               for (let key in NewMessage){
                 myArray.push(key);
+                console.log(myArray);
               }
               this.items = myArray;
             }
         );
     });
 
-    this.showDetails = false;  
   }
   
 
@@ -55,23 +54,10 @@ export class HomePage {
     this.af.auth.logout();
   }
 
-  viewDetails(){
-    this.navCtrl.push (DetailsPage)
-    if(this.showDetails == true){
-      this.showDetails = false;
-    } else {
-      this.showDetails = true;
-    }
-  }
 
-  addComment(messageId: string){
+  addComment(key){
     this.navCtrl.push (DetailsPage)
-    if(this.showDetails == true){
-      this.showDetails = false;
-    } else {
-      this.showDetails = true;
-    }
-  
+    alert(key);
   }
   
 }
