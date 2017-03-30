@@ -27,7 +27,7 @@ export class HttpService{
     getDetailsId(id){
         this.fbId = this.af.database.object('/message'+id) as FirebaseObjectObservable<any>;
         return this.fbId;
-        console.log(fbId);
+        //console.log(fbId);
     }
     
 }

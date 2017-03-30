@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import "rxjs/add/operator/map";
 
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
 
@@ -16,7 +16,8 @@ export class HomePage {
 
   user = {};
   afItems: FirebaseListObservable<any[]>;
-  constructor(public navCtrl: NavController, public af: AngularFire, 
+  constructor(public navCtrl: NavController, 
+              public af: AngularFire, 
               private httpService: HttpService) {
     this.af.auth.subscribe(user =>{
       console.log('---->', user)
@@ -63,7 +64,7 @@ export class HomePage {
     }
   }
 
-  addComment(){
+  addComment(messageId: string){
     this.navCtrl.push (DetailsPage)
     if(this.showDetails == true){
       this.showDetails = false;
