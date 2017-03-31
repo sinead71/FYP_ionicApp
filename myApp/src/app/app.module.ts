@@ -63,7 +63,8 @@ export const firebaseConfig = {
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    DetailHtmlComponent
     ]
     //anything in providers gets injected into any of the components
 })

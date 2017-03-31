@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import "rxjs/add/operator/map";
 
-import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
 import { DetailHtmlComponent } from '../../app/detail-html/detail-html.component';
