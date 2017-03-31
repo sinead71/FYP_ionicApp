@@ -62,14 +62,14 @@ export class HomePage {
     alert(key);
     for(let dbKey in this.afItems){
       if(dbKey == key){
-        
+        //want to be able to show the html that is in DetailHtmlComponent in detail-html.component
       }
     }
 
     }
   }
   
-}
+
 
 
 
