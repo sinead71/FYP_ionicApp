@@ -62,5 +62,8 @@ export class DetailsPage implements OnInit{
       });
   }
   
+  addCommentBtn(){
+     
+  }
 
 }  
