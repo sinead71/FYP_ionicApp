@@ -6,6 +6,32 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<div id="test">div testing {{key}}</div>
+
+
   Waiting for details...
+  <ion-content>
+  <ul>
+    <li class="text">
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="http://lorempixel.com/150/150">
+                </ion-avatar>
+                <h2>{{key}}</h2>
+            </ion-item>
+            <img src="http://lorempixel.com/500/400">
+            <ion-card-content>
+                <p>{{message}}</p>
+            </ion-card-content>  
+            <hr>
+            <ion-card-content>
+                <div>
+                    Comments
+                </div>
+            </ion-card-content> 
+        </ion-card>
+    </li>
+  </ul>
 </ion-content>
+

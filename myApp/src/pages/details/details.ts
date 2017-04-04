@@ -15,21 +15,26 @@ export class DetailsPage implements OnInit{
   item: any;
   user = {};
   afItems: FirebaseListObservable<any[]>;
+
+  key: any;
+  header: string;
+  message: string;
   constructor(public navCtrl: NavController,
               public af: AngularFire,
               public params:NavParams, 
               private httpService: HttpService) {
       this.af.auth.subscribe(user =>{
         if(user){
-          this.user =user.auth.providerData[0];
-          this.afItems =af.database.list('/NewMessage' )
+          this.user = user.auth.providerData[0];
+          this.afItems = af.database.list('/NewMessage' )
           .map((array) => array.reverse()) as FirebaseListObservable<any[]>;      
         }
         else{
         this.user = {};
         this.afItems = null;
       }
-      }) ;
+      });
+      //getting the key of the firebase data from home page
 
       this.httpService.getData()
         .subscribe(
@@ -46,7 +51,11 @@ export class DetailsPage implements OnInit{
   
 
   ngOnInit(){
-    this.id = this.params['id'];
+    this.key = this.params.get('key');
+    this.header = this.params.get('header');
+    this.message = this.params.get('message');
+    console.log(this.key, this.header, this.message);
+
     this.httpService.getData()
       .subscribe(
         item => {this.item = item;

@@ -57,17 +57,21 @@ export class HomePage {
   }
 
 
-  addComment(key){
-    this.navCtrl.push (DetailsPage)
+  addComment(key:any, header:string, message:string){
+    this.navCtrl.push (DetailsPage, {
+      key: key,
+      header: header,
+      message: message
+    });
+    console.log(key, header, message);
     alert(key);
-    for(let dbKey in this.afItems){
-      if(dbKey == key){
-        //want to be able to show the html that is in DetailHtmlComponent in detail-html.component
-      }
+    var test = document.getElementById("#test");
+    test.innerHTML = key;
+    
     }
 
     }
-  }
+  
   
 
 
