@@ -14,7 +14,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { DetailHtmlComponent } from './detail-html/detail-html.component';
 
 
 
@@ -38,8 +37,7 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage,
     TabsPage,
-    LoginPageComponent,
-    DetailHtmlComponent
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,13 +56,11 @@ export const firebaseConfig = {
     HomePage,
     DetailsPage, 
     TabsPage,
-    LoginPageComponent,
-    DetailHtmlComponent
+    LoginPageComponent
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService,
-    DetailHtmlComponent
+    AuthService
     ]
     //anything in providers gets injected into any of the components
 })

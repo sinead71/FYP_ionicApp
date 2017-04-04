@@ -5,7 +5,6 @@ import "rxjs/add/operator/map";
 import { NavController, AlertController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
-import { DetailHtmlComponent } from '../../app/detail-html/detail-html.component';
 
 @Component({
   selector: 'page-home',
@@ -18,8 +17,7 @@ export class HomePage {
   afItems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, 
               public af: AngularFire, 
-              private httpService: HttpService,
-              private detailHtml: DetailHtmlComponent) {
+              private httpService: HttpService) {
     this.af.auth.subscribe(user =>{
       console.log('---->', user)
       if(user){
@@ -63,11 +61,7 @@ export class HomePage {
       header: header,
       message: message
     });
-    console.log(key, header, message);
     alert(key);
-    var test = document.getElementById("#test");
-    test.innerHTML = key;
-    
     }
 
     }
