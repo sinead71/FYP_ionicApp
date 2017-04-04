@@ -23,61 +23,14 @@
             <ion-card-content>
                 <p>{{afItem.newMessage}}</p>
             </ion-card-content> 
-            <ion-card-content>
-                <p>{{afItem.$key}}</p>
-            </ion-card-content> 
             <hr>
             <ion-card-content>
                 <div>
-                    <button id='messComment' ion-button outline (click)='addComment(afItem.$key, afItem.messageHeader, afItem.newMessage)'>Comment</button>
+                    <button id='messComment' ion-button outline (click)='addComment(afItem.$key, afItem.messageHeader, afItem.newMessage)'>Comments</button>
                 </div>
             </ion-card-content> 
         </ion-card>
     </li>
   </ul>
 
-  <ion-card>
-      <ion-item>
-          <ion-avatar item-left>
-              <img src="http://lorempixel.com/150/150">
-          </ion-avatar>
-          <h2>Sinead</h2>
-          <p>Dec 13, 2016</p>
-      </ion-item>
-      <img src="http://blog.kingarthurflour.com/wp-content/uploads/2014/07/TroubleBread2.jpg">
-      <ion-card-content>
-          <p>Does anyone know what flour is best when making bread? 
-              I don't think I'm using the right one. My bread doesn't rise</p>
-          <button id="reply" ion-button icon-right clear (click)='viewDetails()'>
-            <ion-icon name="md-create"></ion-icon>
-          </button>
-      </ion-card-content>    
-  </ion-card>
-
-  <ion-card>
-      <ion-item>
-          <ion-avatar item-left>
-              <img src="http://lorempixel.com/150/150">
-          </ion-avatar>
-          <h2>Aaron</h2>
-          <p>Oct 5, 2016</p>
-      </ion-item>
-      <img src="http://www.realbakingwithrose.com/%233%20Baked%20Cake%20Layer%20in%20Pan.jpg">
-      <ion-card-content>
-          <p>Why does the top of my cake look crystalized and shiny?</p>
-          <button id="reply" ion-button icon-right clear >
-            <ion-icon name="md-create"></ion-icon>
-          </button>
-      </ion-card-content>
-      <hr> 
-      <ion-card-content>
-          <ion-item>
-          <ion-avatar item-left>
-              <img src="http://lorempixel.com/150/150">
-          </ion-avatar>
-          <h2>Sinead</h2>
-          <p>It just means you have used to much sugar. Still edible.</p>
-      </ion-item>
-      </ion-card-content>    
-  </ion-card>
-</ion-content>
+ 

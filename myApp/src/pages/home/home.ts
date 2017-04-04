@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import "rxjs/add/operator/map";
 
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { DetailsPage } from '../details/details';
 import { HttpService } from '../../app/providers/http.service';
 
@@ -12,9 +12,9 @@ import { HttpService } from '../../app/providers/http.service';
 })
 export class HomePage {
   items: any[] = [];
-
   user = {};
   afItems: FirebaseListObservable<any[]>;
+  
   constructor(public navCtrl: NavController, 
               public af: AngularFire, 
               private httpService: HttpService) {
@@ -54,14 +54,14 @@ export class HomePage {
     this.af.auth.logout();
   }
 
-
+  //gets the data from each field and passes it to the detailsPage where it wil be displayed on screen
   addComment(key:any, header:string, message:string){
     this.navCtrl.push (DetailsPage, {
       key: key,
       header: header,
       message: message
     });
-    alert(key);
+    //alert(key);
     }
 
     }
