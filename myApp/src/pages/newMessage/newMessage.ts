@@ -20,4 +20,5 @@ export class newMessagePage {
     this.clearHeader = null;
     this.clearMessage = null;
   }
+  
 }

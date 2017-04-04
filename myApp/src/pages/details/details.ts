@@ -54,7 +54,6 @@ export class DetailsPage implements OnInit{
     this.key = this.params.get('key');
     this.header = this.params.get('header');
     this.message = this.params.get('message');
-    console.log(this.key, this.header, this.message);
 
     this.httpService.getData()
       .subscribe(
@@ -62,5 +61,6 @@ export class DetailsPage implements OnInit{
         //will also get image from here
       });
   }
+  
 
 }  

@@ -11,5 +11,6 @@ export class ProfilePage {
   constructor(public navCtrl: NavController) {
 
   }
+  
 
 }
