@@ -12,13 +12,28 @@ export class HttpService{
     getData(){
         return this.http.get('https://fypionic.firebaseio.com/NewMessage.json')
             .map((response: Response) => response.json()); 
+    } 
+
+    getComments(){
+        return this.http.get('https://fypionic.firebaseio.com/NewMessage/-KgyYfWoy5iU8CkbFIDz/newComment')
+            .map((response: Response) => response.json()); 
     }  
 
-    sendDate(message: any){
+    sendData(message: any){
         const body = JSON.stringify(message);
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
         return this.http.post('https://fypionic.firebaseio.com/NewMessage.json', body, {
+            headers: headers
+        })
+            .map((data: Response) => data.json());
+    }
+
+    sendComments(message: any){
+        const body = JSON.stringify(message);
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('https://fypionic.firebaseio.com/NewMessage/-KgyYfWoy5iU8CkbFIDz/newComment', body, {
             headers: headers
         })
             .map((data: Response) => data.json());
