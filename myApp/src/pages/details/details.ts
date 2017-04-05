@@ -12,12 +12,10 @@ import { HttpService } from '../../app/providers/http.service';
 })
 export class DetailsPage implements OnInit{
   items: any[] = [];
-  comments: any[] = [];
   id: any;
   item: any;
   user = {};
   afItems: FirebaseListObservable<any[]>;
-  afComments: FirebaseListObservable<any[]>;
   showHideInput: boolean = false;
   key: any;
   header: string;
@@ -33,10 +31,7 @@ export class DetailsPage implements OnInit{
           this.user = user.auth.providerData[0];
           //geting the messages
           this.afItems = af.database.list('/NewMessage' )
-          .map((array) => array.reverse()) as FirebaseListObservable<any[]>;   
-          //getting the comments
-          //this.afComments = af.database.list('/newComment')   
-          //.map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+          .map((array) => array.reverse()) as FirebaseListObservable<any[]>; 
         }
         else{
         this.user = {};
@@ -54,17 +49,7 @@ export class DetailsPage implements OnInit{
               this.items = myArray;
             }
         );
-
-       this.httpService.getComments()
-        .subscribe(
-          NewMessage => {
-            const myCommentsArray = [];
-            for (let key in NewMessage){
-              myCommentsArray.push(key);
-            }
-            this.items = myCommentsArray;
-          }
-        );           
+          
   }
 
   

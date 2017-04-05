@@ -12,15 +12,13 @@ export class newMessagePage {
   clearMessage: string = "";
   constructor(private httpService: HttpService) {}
 
-  MessageSubmit(messageHeader: string, newMessage: string){
-    this.httpService.sendData({messageHeader: messageHeader, newMessage: newMessage})
+  MessageSubmit(messageHeader: string, newMessage: string, newComment: string){
+    this.httpService.sendData({messageHeader: messageHeader, newMessage: newMessage, newComment: newComment})
       .subscribe(
         data => console.log
       );
     this.clearHeader = null;
     this.clearMessage = null;
-
-    console.log("sent");
   }
   
 }

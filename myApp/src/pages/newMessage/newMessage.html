@@ -23,9 +23,12 @@
   </ion-item>
   <ion-item>
       <ion-label floating>Your message</ion-label>
-      <ion-input type="text" id="newMessage" #newMessage [(ngModel)]="clearMessage"></ion-input>   
-  </ion-item>   
-      <button id="send" ion-button block (click)="MessageSubmit(messageHeader.value, newMessage.value)">
+      <ion-input type="text" id="newMessage" #newMessage [(ngModel)]="clearMessage"></ion-input>  
+  </ion-item>  
+  <ion-item id="newComment">
+        <ion-input type="text" id="newComment" #newComment></ion-input>
+  </ion-item>         
+      <button id="send" ion-button block (click)="MessageSubmit(messageHeader.value, newMessage.value, newComment.value)">
           Send
       </button> 
 </ion-content>
