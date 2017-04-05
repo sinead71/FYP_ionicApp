@@ -32,6 +32,12 @@
 </ion-content>
 
 <ion-fab right bottom id="addBtn">
-    <button ion-fab color="danger" (click)="addCommentBtn"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="danger" (click)="addCommentBtn()" ><ion-icon name="add"></ion-icon></button>
 </ion-fab>
 
+<div *ngIf="showHideInput == true">
+    <ion-card>
+        <input type="text" name="commentField" placeholder="Add your comment..."/>   
+        <button name="submit"></button> 
+    </ion-card>
+</div>

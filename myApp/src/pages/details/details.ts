@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { FormsModule } from '@angular/forms';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../app/providers/http.service';
-import { HomePage } from './home/home';
+//import { HomePage } from './home/home';
 
 @Component({
   templateUrl: 'details.html'
@@ -15,6 +16,7 @@ export class DetailsPage implements OnInit{
   item: any;
   user = {};
   afItems: FirebaseListObservable<any[]>;
+  showHideInput: Boolean;
 
   key: any;
   header: string;
@@ -45,7 +47,10 @@ export class DetailsPage implements OnInit{
               }
               this.items = myArray;
             }
-        );  
+        ); 
+
+  this.showHideInput = false;
+         
   }
 
   
@@ -63,7 +68,17 @@ export class DetailsPage implements OnInit{
   }
   
   addCommentBtn(){
-     
+    if(this.showHideInput == false){
+      this.showHideInput == true;
+      console.log(this.showHideInput);
+    }else{
+      this.showHideInput = false;
+    };
+    console.log("message after show hide statement");
+    
   }
 
+ 
+
 }  
+
