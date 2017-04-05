@@ -21,23 +21,39 @@
                 <p>{{message}}</p>
             </ion-card-content>  
             <hr>
-            <ion-card-content>
-                <div>
-                    Comments
+
+            <ion-card-content id="inputContent">    
+                <div id="addCommentDiv" *ngIf='showHideInput'>
+                    <ion-card>
+                        <ion-list>
+                            <ion-input id="commentInputField" type="text" name="commentField" placeholder="Add your comment..."></ion-input>
+                            <ion-buttons end id="sendBtn">
+                                <button ion-button icon-right color="royal">
+                                    <ion-icon name="send"></ion-icon>
+                                </button>
+                            </ion-buttons> 
+                        </ion-list>
+                    </ion-card>
                 </div>
-            </ion-card-content> 
+            </ion-card-content>
+
+            <ion-card-content>
+                <ul>
+                  <li>
+                      
+                  </li>
+                </ul>
+            </ion-card-content>
+
         </ion-card>
     </li>
   </ul>
-</ion-content>
+
 
 <ion-fab right bottom id="addBtn">
     <button ion-fab color="danger" (click)="addCommentBtn()" ><ion-icon name="add"></ion-icon></button>
 </ion-fab>
 
-<div *ngIf="showHideInput == true">
-    <ion-card>
-        <input type="text" name="commentField" placeholder="Add your comment..."/>   
-        <button name="submit"></button> 
-    </ion-card>
-</div>
+
+
+</ion-content>
