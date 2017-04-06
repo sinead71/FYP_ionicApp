@@ -21,6 +21,7 @@ export class DetailsPage implements OnInit{
   key: any;
   header: string;
   message: string;
+  clearComment: string = "";
 
   
   constructor(public navCtrl: NavController,
@@ -100,6 +101,8 @@ export class DetailsPage implements OnInit{
       .subscribe(
         data => console.log
       );
+    this.clearComment = null;
+    this.showHideInput = false;
   }
 
 }  

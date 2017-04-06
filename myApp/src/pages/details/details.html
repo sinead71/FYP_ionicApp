@@ -29,7 +29,7 @@
                 <div id="addCommentDiv" *ngIf='showHideInput'>
                     <ion-card>
                         <ion-list>
-                            <ion-input id="newComment" type="text" name="commentField" #newComment placeholder="Add your comment.."></ion-input>
+                            <ion-input id="newComment" type="text" name="commentField" #newComment placeholder="Add your comment.." [(ngModel)]="clearComment"></ion-input>
                             <ion-buttons end id="sendBtn">
                                 <button ion-button icon-right color="royal" (click)="commentSubmit(newComment.value)">
                                     <ion-icon name="send"></ion-icon>
