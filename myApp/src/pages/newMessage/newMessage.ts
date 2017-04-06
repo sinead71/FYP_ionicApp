@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFire } from 'angularfire2';
 
 import { HttpService } from '../../app/providers/http.service';
 
@@ -10,7 +11,21 @@ import { HttpService } from '../../app/providers/http.service';
 export class newMessagePage {
   clearHeader: string = "";
   clearMessage: string = "";
-  constructor(private httpService: HttpService) {}
+  user = {};
+
+  constructor(private httpService: HttpService, public af: AngularFire) {
+    this.af.auth.subscribe(user =>{
+      if(user){
+        this.user = user.auth.providerData[0];
+      }else{
+        this.user = {};
+      }
+    })
+  }
+
+  Logout(){
+    this.af.auth.logout();
+  }
 
   MessageSubmit(messageHeader: string, newMessage: string){
     this.httpService.sendData({messageHeader: messageHeader, newMessage: newMessage})
