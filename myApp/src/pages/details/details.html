@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-  <ion-content>
+<ion-content>
   <ul>
     <li class="text">
         <ion-card>
@@ -14,7 +14,7 @@
                 <ion-avatar item-left>
                     <img src="http://lorempixel.com/150/150">
                 </ion-avatar>
-                <h2>{{ header }}</h2>
+                <h2>{{header}}</h2>
             </ion-item>
             <img src="http://lorempixel.com/500/400">
             <ion-card-content>
@@ -36,23 +36,28 @@
                     </ion-card>
                 </div>
             </ion-card-content>
+        </ion-card>
+    </li>
 
+    <li class="text" *ngFor="let afComment of afComments | async">
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="http://lorempixel.com/150/150">
+                </ion-avatar>
+                <h2>UserName</h2>
+            </ion-item>
             <ion-card-content>
-                <ul>
-                  <li>
-                      
-                  </li>
-                </ul>
+                <p>{{afComment.newComment}}</p>
             </ion-card-content>
-
         </ion-card>
     </li>
   </ul>
 
 
-<ion-fab right bottom id="addBtn">
+  <ion-fab right bottom id="addBtn">
     <button ion-fab color="danger" (click)="addCommentBtn()" ><ion-icon name="add"></ion-icon></button>
-</ion-fab>
+  </ion-fab>
 
 
 

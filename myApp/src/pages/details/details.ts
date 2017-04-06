@@ -12,10 +12,12 @@ import { HttpService } from '../../app/providers/http.service';
 })
 export class DetailsPage implements OnInit{
   items: any[] = [];
+  comments: any[] = [];
   id: any;
   item: any;
   user = {};
   afItems: FirebaseListObservable<any[]>;
+  afComments: FirebaseListObservable<any[]>;
   showHideInput: boolean = false;
   key: any;
   header: string;
@@ -31,11 +33,15 @@ export class DetailsPage implements OnInit{
           this.user = user.auth.providerData[0];
           //geting the messages
           this.afItems = af.database.list('/NewMessage' )
-          .map((array) => array.reverse()) as FirebaseListObservable<any[]>; 
+            .map((array) => array.reverse()) as FirebaseListObservable<any[]>; 
+          //getting the comments
+          this.afComments = af.database.list('/NewComment')
+            .map((array) => array.reverse()) as FirebaseListObservable<any[]>;
         }
         else{
         this.user = {};
         this.afItems = null;
+        //this.afComments = null;
       }
       });
       //getting the key of the firebase data from home page
@@ -48,7 +54,20 @@ export class DetailsPage implements OnInit{
               }
               this.items = myArray;
             }
-        );
+      );
+
+      //getting the key for the comments array
+      this.httpService.getComment()
+        .subscribe(
+          NewComment => {
+            const myCommentArray = [];
+            for (let key in NewComment){
+              myCommentArray.push(key);
+            }
+            this.comments = myCommentArray;
+            console.log(myCommentArray);
+          }
+        )
           
   }
 
@@ -61,9 +80,8 @@ export class DetailsPage implements OnInit{
 
     this.httpService.getData()
       .subscribe(
-        item => {this.item = item;
-        //will also get image from here
-      });
+        item => {this.item = item;}
+      );
   }
   
   addCommentBtn(){

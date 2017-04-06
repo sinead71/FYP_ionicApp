@@ -14,6 +14,11 @@ export class HttpService{
             .map((response: Response) => response.json()); 
     } 
 
+    getComment(){
+        return this.http.get('https://fypionic.firebaseio.com/NewComment.json')
+            .map((response: Response) => response.json()); 
+    } 
+
     sendData(message: any){
         const body = JSON.stringify(message);
         const headers = new Headers();
@@ -28,7 +33,7 @@ export class HttpService{
         const body = JSON.stringify(comment);
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('https://fypionic.firebaseio.com/NewComment ', body, {
+        return this.http.post('https://fypionic.firebaseio.com/NewComment.json ', body, {
             headers: headers
         })
             .map((data: Response) => data.json());
