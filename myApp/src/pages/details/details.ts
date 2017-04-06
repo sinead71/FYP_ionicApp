@@ -41,7 +41,7 @@ export class DetailsPage implements OnInit{
         else{
         this.user = {};
         this.afItems = null;
-        //this.afComments = null;
+        this.afComments = null;
       }
       });
       //getting the key of the firebase data from home page
@@ -71,7 +71,9 @@ export class DetailsPage implements OnInit{
           
   }
 
-  
+  Logout(){
+    this.af.auth.logout();
+  }
 
   ngOnInit(){
     this.key = this.params.get('key');
