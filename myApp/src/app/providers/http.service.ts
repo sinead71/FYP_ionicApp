@@ -24,6 +24,16 @@ export class HttpService{
             .map((data: Response) => data.json());
     }
 
+    sendComment(comment: any){
+        const body = JSON.stringify(comment);
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('https://fypionic.firebaseio.com/NewComment ', body, {
+            headers: headers
+        })
+            .map((data: Response) => data.json());
+    }
+
     getDetailsId(id){
         this.fbId = this.af.database.object('/message'+id) as FirebaseObjectObservable<any>;
         return this.fbId;

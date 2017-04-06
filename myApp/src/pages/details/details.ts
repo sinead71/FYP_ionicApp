@@ -77,12 +77,10 @@ export class DetailsPage implements OnInit{
   }
 
   commentSubmit(newComment:string){
-    this.httpService.sendData({newComment: newComment})
+    this.httpService.sendComment({newComment: newComment})
       .subscribe(
         data => console.log
       );
-
-    
   }
 
 }  

@@ -12,8 +12,8 @@ export class newMessagePage {
   clearMessage: string = "";
   constructor(private httpService: HttpService) {}
 
-  MessageSubmit(messageHeader: string, newMessage: string, newComment: string){
-    this.httpService.sendData({messageHeader: messageHeader, newMessage: newMessage, newComment: newComment})
+  MessageSubmit(messageHeader: string, newMessage: string){
+    this.httpService.sendData({messageHeader: messageHeader, newMessage: newMessage})
       .subscribe(
         data => console.log
       );
