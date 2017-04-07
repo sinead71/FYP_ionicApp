@@ -4,7 +4,7 @@ import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 
 
 @Component({
     selector: 'app-home-page',
-    templateUrl: './login-page.component.html'
+    templateUrl: 'login-page.component.html'
 })
 export class LoginPageComponent {
     user = {};
@@ -30,7 +30,8 @@ export class LoginPageComponent {
     this.af.auth.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
-      });  
+      }); 
+      alert("log in clicked"); 
     }
 
     Logout(){
