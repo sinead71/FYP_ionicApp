@@ -28,22 +28,23 @@
             <ion-card-content id="inputContent">    
                 <div id="addCommentDiv" *ngIf='showHideInput'>
                     <ion-card>
-                        <ion-list>
-                            <ion-input id="newComment" type="text" name="commentField" #newComment placeholder="Add your comment.." [(ngModel)]="clearComment"></ion-input>
-                            <ion-input id="messageKey" type="hidden" value="{{key}}" #key></ion-input>
-                            <ion-buttons end id="sendBtn">
-                                <button ion-button icon-right color="royal" (click)="commentSubmit(newComment.value, messageKey.value)">
-                                    <ion-icon name="send"></ion-icon>
-                                </button>
-                            </ion-buttons> 
-                        </ion-list>
+                        <ion-input id="newComment" type="text" name="commentField" #newComment placeholder="Add your comment.." [(ngModel)]="clearComment"></ion-input>
+
+                        <ion-input id="hiddenMessageKey" type="hidden" value="{{key}}" #messageKey></ion-input>
+
+                        <ion-buttons end id="sendBtn">
+                            <button ion-button icon-right color="royal" (click)="commentSubmit(newComment.value, messageKey.value)">
+                                <ion-icon name="send"></ion-icon>
+                            </button>
+                        </ion-buttons>  
                     </ion-card>
                 </div>
             </ion-card-content>
         </ion-card>
     </li>
 
-    <li class="text" *ngFor="let afComment of afComments | async">
+    <li class="text" *ngFor="let afComment of afComments | async" >
+      <div *ngIf="{{afComment.messageKey}} == ifMessageKey">
         <ion-card>
             <ion-item>
                 <ion-avatar item-left>
@@ -55,6 +56,7 @@
                 <p>{{afComment.newComment}}</p>
             </ion-card-content>
         </ion-card>
+      </div>
     </li>
   </ul>
 

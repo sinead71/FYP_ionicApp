@@ -22,6 +22,7 @@ export class DetailsPage implements OnInit{
   header: string;
   message: string;
   clearComment: string = "";
+  ifMessageKey: any;
 
   
   constructor(public navCtrl: NavController,
@@ -98,10 +99,12 @@ export class DetailsPage implements OnInit{
   commentSubmit(newComment:string, messageKey: any){
     this.httpService.sendComment({newComment: newComment, messageKey: messageKey})
       .subscribe(
-        data => console.log
+        data => console.log 
       );
     this.clearComment = null;
     this.showHideInput = false;
+    this.ifMessageKey = messageKey;
+
   }
 
 }  
