@@ -12,6 +12,7 @@ import { HttpService } from './providers/http.service';
   providers: [HttpService]
 })
 export class MyApp  implements OnInit{
+  // the very firest page that will appear when opening the project
   rootPage = LoginPageComponent;
 
   constructor(private httpService: HttpService, platform: Platform) {

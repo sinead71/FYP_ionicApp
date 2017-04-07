@@ -15,6 +15,7 @@ export class LoginPageComponent {
         this.af.auth.subscribe(user =>{
       console.log('---->', user)
       if(user){
+        //checking if user is logged in.
         this.user = user.auth.providerData[0];
         this.afItems = af.database.list('/items'); 
       }
@@ -26,6 +27,7 @@ export class LoginPageComponent {
  
     } 
 
+    //getting firebases method of viewing the the log in page. In this case it pops up a google log in form
     Login(){
     this.af.auth.login({
       provider: AuthProviders.Google,
@@ -34,6 +36,7 @@ export class LoginPageComponent {
       alert("log in clicked"); 
     }
 
+    //logging the user out
     Logout(){
     this.af.auth.logout();
     }

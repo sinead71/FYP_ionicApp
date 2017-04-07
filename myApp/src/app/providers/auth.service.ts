@@ -12,6 +12,7 @@ export class AuthService{
     this.af.auth.subscribe(user => {
       console.log('---->', user)
       if (user) {
+        //checking user is logged in
         this.user = user.auth.providerData[0];
         this.items = af.database.list('/items');
       }
@@ -21,6 +22,7 @@ export class AuthService{
     });
   }
 
+  //using firebases option of using google to sign in to the app
   loginWithGoogle(){
       return this.af.auth.login({
           //want to sign in with google
@@ -30,11 +32,12 @@ export class AuthService{
       });
     }   
 
+    //logging user out
     logout(){
         return this.af.auth.logout();
     }
 
-
+    //checking to see if the user is logged in by checking firebases user id. this is then used on the login-page component
   isUserLoggedIn(){
     return (Object.keys(this.user).length === 0);
   }

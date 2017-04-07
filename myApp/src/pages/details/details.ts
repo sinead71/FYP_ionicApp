@@ -15,6 +15,7 @@ export class DetailsPage implements OnInit{
   id: any;
   item: any;
   user = {};
+  //the variable that gets the object sfrom firebase.
   afItems: FirebaseListObservable<any[]>;
   afComments: FirebaseListObservable<any[]>;
   showHideInput: boolean = false;
@@ -22,7 +23,6 @@ export class DetailsPage implements OnInit{
   header: string;
   message: string;
   clearComment: string = "";
-  ifMessageKey: any;
 
   
   constructor(public navCtrl: NavController,
@@ -31,6 +31,7 @@ export class DetailsPage implements OnInit{
               private httpService: HttpService) {
       this.af.auth.subscribe(user =>{
         if(user){
+          //makes sure that the user is logged in.
           this.user = user.auth.providerData[0];
           //geting the messages
           this.afItems = af.database.list('/NewMessage' )
@@ -40,12 +41,14 @@ export class DetailsPage implements OnInit{
             .map((array) => array.reverse()) as FirebaseListObservable<any[]>;
         }
         else{
+          // if no user is logged in then the variablewill set to null so that they can't be seen
         this.user = {};
         this.afItems = null;
         this.afComments = null;
       }
       });
       //getting the key of the firebase data from home page
+      //this array gets looped though on the details.html file
       this.httpService.getData()
         .subscribe(
             NewMessage => {
@@ -58,6 +61,7 @@ export class DetailsPage implements OnInit{
       );
 
       //getting the key for the comments array
+      //this array gets looped though on the details.html file
       this.httpService.getComment()
         .subscribe(
           NewComment => {
@@ -71,10 +75,14 @@ export class DetailsPage implements OnInit{
           
   }
 
+  //Logs the user out
   Logout(){
     this.af.auth.logout();
   }
 
+  //key, header and messgae are variables created at the top of that page that will store the
+  //values of the message that was clicked on to view. This is then shown on the details.html
+  //file eg. {{header}}
   ngOnInit(){
     this.key = this.params.get('key');
     this.header = this.params.get('header');
@@ -86,6 +94,7 @@ export class DetailsPage implements OnInit{
       );
   }
   
+  //this hides or shows the comment input field when the pluse button is hit.
   addCommentBtn(){
     if(this.showHideInput == false){
       this.showHideInput = true;
@@ -96,14 +105,15 @@ export class DetailsPage implements OnInit{
     console.log("message after show hide statement");    
   }
 
+  //takes the comment value and the message unique key(that was clicked on) in the hidden input field.
   commentSubmit(newComment:string, messageKey: any){
     this.httpService.sendComment({newComment: newComment, messageKey: messageKey})
       .subscribe(
         data => console.log 
       );
+    //this clears the input field when the comment is sent and also sets it to hide again. 
     this.clearComment = null;
     this.showHideInput = false;
-    this.ifMessageKey = messageKey;
 
   }
 

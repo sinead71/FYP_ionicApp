@@ -18,6 +18,7 @@ export class ProfilePage {
               private httpService: HttpService ) {
     this.af.auth.subscribe(user =>{
       if(user){
+        //checjking user is logged in
         this.user = user.auth.providerData[0]; 
         this.afItems = af.database.list('/NewMessage', {query: {orderByChild: 'date'}})
         .map((array) => array.reverse()) as FirebaseListObservable<any[]>; 
@@ -25,7 +26,7 @@ export class ProfilePage {
         this.user = {};
       }
     
-
+    //getting the data from firebase and puts it in an array to go through on the html page
     this.httpService.getData()
         .subscribe(
             NewMessage => {
@@ -40,6 +41,7 @@ export class ProfilePage {
     });
   }
   
+  //logs user out
   Logout(){
     this.af.auth.logout();
   }

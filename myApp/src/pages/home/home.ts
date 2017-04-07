@@ -33,7 +33,7 @@ export class HomePage {
       }
 
       
-      //creating array to loop through data in newMessages table and adding it to the home page
+      //creating array to loop through data in newMessages table so it can be adding it to the home page
       this.httpService.getData()
         .subscribe(
             NewMessage => {
@@ -49,7 +49,7 @@ export class HomePage {
 
   }
   
-
+  //logs the user out
   Logout(){
     this.af.auth.logout();
   }
@@ -61,7 +61,6 @@ export class HomePage {
       header: header,
       message: message
     });
-    //alert(key);
     }
 
     }
