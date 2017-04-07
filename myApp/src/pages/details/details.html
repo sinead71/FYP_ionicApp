@@ -30,8 +30,9 @@
                     <ion-card>
                         <ion-list>
                             <ion-input id="newComment" type="text" name="commentField" #newComment placeholder="Add your comment.." [(ngModel)]="clearComment"></ion-input>
+                            <ion-input id="messageKey" type="hidden" value="{{key}}" #key></ion-input>
                             <ion-buttons end id="sendBtn">
-                                <button ion-button icon-right color="royal" (click)="commentSubmit(newComment.value)">
+                                <button ion-button icon-right color="royal" (click)="commentSubmit(newComment.value, messageKey.value)">
                                     <ion-icon name="send"></ion-icon>
                                 </button>
                             </ion-buttons> 

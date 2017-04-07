@@ -65,7 +65,6 @@ export class DetailsPage implements OnInit{
               myCommentArray.push(key);
             }
             this.comments = myCommentArray;
-            console.log(myCommentArray);
           }
         )
           
@@ -96,8 +95,8 @@ export class DetailsPage implements OnInit{
     console.log("message after show hide statement");    
   }
 
-  commentSubmit(newComment:string){
-    this.httpService.sendComment({newComment: newComment})
+  commentSubmit(newComment:string, messageKey: any){
+    this.httpService.sendComment({newComment: newComment, messageKey: messageKey})
       .subscribe(
         data => console.log
       );
